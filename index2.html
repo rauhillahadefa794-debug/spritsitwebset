@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Biodata</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbx6lTZTZDzrzCKu3bDtCqML6H8V1OuZD-ePakbLa91J7bQn11o577dB2C7wKMaTDGBGwA/exec';
+   const form = document.getElementById('formBiodata');
+        const btn = document.getElementById('btnMasuk');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.innerHTML = "Sedang Menyimpan...";
+
+            // Kirim ke Google Sheets
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                // Ambil nilai untuk dibawa ke halaman berikutnya
+                const nama = document.getElementById('nama').value;
+                const umur = document.getElementById('umur').value;
+                const warna = document.getElementById('warna_kesukaan').value;
+                const makanan = document.getElementById('makanan_kesukaan').value;
+                const hobi = document.getElementById('hobi').value;
+
+                // PINDAH KE INDEX3.HTML sambil bawa data lewat URL
+                window.location.href = `index3.html?nama=${nama}&umur=${umur}&warna=${warna}&makanan=${makanan}&hobi=${hobi}`;
+            })
+            .catch(error => {
+                alert("Waduh, error nih! Coba cek koneksi.");
+                btn.disabled = false;
+                btn.innerHTML = "MASUK";
+            });
+        });
+</script>
+   <script src="script.js"></script>
+<div class="header">FORM BIODATA</div>
+
+<div class="content">
+  <div class="form-box">
+    <form id="formBiodata">
+      <input type="text" id="nama" placeholder="Nama" required>
+      <input type="number" id="umur" placeholder="Umur" required>
+      <input type="text" id="warna" placeholder="Warna kesukaan">
+      <input type="text" id="makanan" placeholder="Makanan kesukaan">
+      <input type="text" id="hobi" placeholder="Hobi">
+  
+      <a href="menupage.html">
+        <button type="button" class="btn">LANJUT</button>
+      </a>
+    </form>
+  </div>
+</div>
+
+<!-- <script src="script.js"></script> -->
+
+
+
+</body>
+</html>

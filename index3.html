@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="script.js"></script>
+    <script>
+// Mengambil data dari URL
+        const params = new URLSearchParams(window.location.search);
+        const nama = params.get('nama');
+        const umur = params.get('umur');
+        const warna = params.get('warna');
+        const makanan = params.get('makanan');
+        const hobi = params.get('hobi');
+
+        if(nama) {
+            document.getElementById('konten-salam').innerHTML = 
+            `<h1>Halo ${nama}!</h1>
+            <p>Sekarang umurnya <b>${umur} tahun</b>, punya warna kesukaan <b>${warna}</b>, 
+            seneng makan <b>${makanan}</b> ama hobinya drakoran, mageran sama <b>${hobi}</b>.</p>`;
+        } else {
+            document.getElementById('konten-salam').innerHTML = "<h1>Ups! Datanya kosong.</h1>";
+        }
+    </script>
+
+<div class="header">MENU</div>
+
+<div class="content">
+
+  <div id="salam"></div>
+
+  <h2>Pilih Materi</h2>
+
+  <div class="container">
+    <div class="card">
+      <h3>Formula</h3>
+      <a href="formula.html"><button class="btn">Klik</button></a>
+    </div>
+
+    <div class="card">
+      <h3>Function</h3>
+      <a href="fungsi.html"><button class="btn">Klik</button></a>
+    </div>
+
+    <div class="card">
+      <h3>Error Handling</h3>
+      <a href="error.html"><button class="btn">Klik</button></a>
+    </div>
+
+    <div class="card">
+      <h3>Dashboard</h3>
+      <a href="dashboard.html"><button class="btn">Klik</button></a>
+    </div>
+  </div>
+
+  <a href="latihan.html" style="margin-top:40px;">
+    <button class="btn">Latihan</button>
+  </a>
+
+</div>
+
+
+
+
+
+</body>
+</html>

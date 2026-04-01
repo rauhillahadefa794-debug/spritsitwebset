@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Handling</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <script src="script.js"></script>
+  <div class="header">ERROR HANDLING</div>
+
+  <div class="content">
+<br><br><br><br>
+    <!-- 1 -->
+    <div class="error">
+      <div class="title"><span class="dot">●</span>1. #DIV/0!</div>
+      <ul>
+        <li>pembagian dengan 0</li>
+        <li>pembagian dengan sel kosong</li>
+      </ul>
+
+      <div class="code">=A1/B1 (B1=0)</div>
+
+      <p><b>Cara pikir:</b> tidak bisa membagi dengan “tidak ada”</p>
+
+      <div class="code">=IF(B1=0, 0, A1/B1)</div><br>
+      atau<br>
+      <div class="code">=IFERROR(A1/B1, 0)</div>
+    </div>
+<br><br><br><br>
+    <!-- 2 -->
+    <div class="error">
+      <div class="title"><span class="dot">●</span>2. #VALUE!</div>
+      <ul>
+        <li>tipe data tidak sesuai</li>
+      </ul>
+
+      <div class="code">="Aurel"+10</div>
+
+      <p><b>Analogi:</b> menjumlahkan teks dengan angka</p>
+
+      <div class="code">=VALUE(A1)</div>
+    </div>
+<br><br><br><br>
+    <!-- 3 -->
+    <div class="error">
+      <div class="title"><span class="dot">●</span>3. #REF!</div>
+      <ul>
+        <li>referensi sel hilang / dihapus</li>
+      </ul>
+
+      <div class="code">=A1+B1 (B1 dihapus)</div>
+
+      <p><b>Solusi:</b> perbaiki referensi, jangan hapus data yang dipakai</p>
+    </div>
+<br><br><br><br>
+    <!-- 4 -->
+    <div class="error">
+      <div class="title"><span class="dot">●</span>4. #NAME?</div>
+      <ul>
+        <li>salah ketik function</li>
+      </ul>
+
+      <div class="code">=SUUM(A1:A5)</div>
+
+      <p><b>Solusi:</b> perbaiki → SUM</p>
+    </div>
+<br><br><br><br>
+    <!-- 5 -->
+    <div class="error">
+      <div class="title"><span class="dot">●</span>5. #NUM!</div>
+      <ul>
+        <li>angka tidak valid</li>
+      </ul>
+
+      <div class="code">=SQRT(-1)</div>
+
+      <p><b>Analogi:</b> akar negatif tidak valid di Excel</p>
+    </div>
+<br><br><br><br>
+    <!-- 6 -->
+    <div class="error">
+      <div class="title"><span class="dot">●</span>6. #N/A</div>
+      <ul>
+        <li>data tidak ditemukan</li>
+      </ul>
+
+      <div class="code">=VLOOKUP("Aurel", A1:B5, 2, FALSE)</div>
+
+      <p>Jika data tidak ada:</p>
+
+      <div class="code">
+        =IFERROR(VLOOKUP(...), "Tidak ditemukan")
+      </div>
+    </div>
+<br><br><br><br>
+    <!-- 7 -->
+    <div class="error">
+      <div class="title"><span class="dot">●</span>7. #NULL!</div>
+      <ul>
+        <li>range tidak benar</li>
+      </ul>
+
+      <div class="code">=A1:A5 B1:B5</div>
+    </div>
+
+      <a href="menupage.html">
+        <button type="button" class="btn">Kembali</button>
+      </a>
+
+  </div>
+
+
+
+</body>
+</html>
